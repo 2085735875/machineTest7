@@ -1,0 +1,33 @@
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form [formGroup]="studentForm" (ngSubmit)="onStudentAdd()">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" formControlName="fname" class="form-control" id="fname">
+                <span class="text-danger" *ngIf="f['fname'].touched && f['fname'].hasError('required')">This is required field.</span>
+                <span class="text-danger" *ngIf="f['fname'].dirty && f['fname'].hasError('pattern')">Please enter valid name.</span>
+            </div>  
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" formControlName="lname" class="form-control" id="lname">
+                <span class="text-danger" *ngIf="f['lname'].touched && f['lname'].hasError('required')">This is required field.</span>
+                <span class="text-danger" *ngIf="f['lname'].dirty && f['lname'].hasError('pattern')">Please enter valid name.</span>
+            </div>   
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control" id="email">
+                <span class="text-danger" *ngIf="f['email'].touched && f['email'].hasError('required')">This is required field.</span>
+                <span class="text-danger" *ngIf="f['email'].dirty && f['email'].hasError('pattern')">Please enter valid email.</span>
+            </div>   
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="text" formControlName="contact" class="form-control" id="contact">
+                <span class="text-danger" *ngIf="f['contact'].touched && f['contact'].hasError('required')">This is required field.</span>
+                <span class="text-danger" *ngIf="f['contact'].dirty && f['contact'].hasError('minlength')">The contact min length should be 10.</span>
+                <span class="text-danger" *ngIf="f['contact'].dirty && f['contact'].hasError('maxlength')">The contact maxn length should be 10.</span>
+            </div> 
+            <button mat-raised-button color="accent" class="btn-block">Add Student</button>
+        </form>
+    </div>
+</div>
